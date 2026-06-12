@@ -103,6 +103,10 @@
             align-items: center;
         }
 
+        .nav-link {
+            font-weight: bold;
+        }
+
         .nav-link:hover {
             color: var(--primary-color);
         }
@@ -133,7 +137,7 @@
 
         /* --- Hero Section --- */
         .hero {
-            padding: 160px 0 100px;
+            padding: 180px 0 120px;
             text-align: center;
             background: radial-gradient(circle at top right, var(--accent-soft), transparent);
         }
@@ -155,7 +159,7 @@
             align-items: center;
             gap: 8px;
             height: 50px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .wave-bar {
@@ -178,13 +182,14 @@
 
         .hero-title {
             font-size: 3rem;
-            line-height: 1.3;
+            line-height: 1.4;
             margin-bottom: 30px;
             font-weight: 800;
         }
 
         .hero-title span {
             color: var(--primary-color);
+            background: linear-gradient(transparent 70%, var(--accent-soft) 0%);
         }
 
         .hero-lead {
@@ -204,6 +209,7 @@
             cursor: pointer;
             border: none;
             box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: var(--transition);
         }
 
         .btn-primary {
@@ -216,7 +222,7 @@
             box-shadow: 0 15px 30px rgba(13, 110, 253, 0.3);
         }
 
-        /* --- Features --- */
+        /* --- Layout Sections --- */
         section { padding: 100px 0; }
         .bg-grey { background-color: var(--section-bg); }
 
@@ -228,8 +234,23 @@
         .section-header h2 {
             font-size: 2.2rem;
             margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
         }
 
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background-color: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* --- Features Section --- */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -238,7 +259,7 @@
 
         .feature-card {
             background-color: var(--card-bg);
-            padding: 40px;
+            padding: 40px 30px;
             border-radius: 20px;
             border: 1px solid var(--border-color);
             transition: var(--transition);
@@ -247,15 +268,28 @@
         .feature-card:hover {
             transform: translateY(-10px);
             border-color: var(--primary-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
         }
 
         .feature-icon {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 20px;
+            display: inline-block;
         }
 
-        /* --- Steps --- */
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            text-align: left;
+        }
+
+        /* --- Steps Section --- */
         .steps-container {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -280,9 +314,20 @@
             font-size: 1.8rem;
             font-weight: bold;
             margin: 0 auto 25px;
+            box-shadow: 0 5px 15px rgba(13, 110, 253, 0.2);
         }
 
-        /* --- FAQ (Accordion) --- */
+        .step-box h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+
+        .step-box p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* --- FAQ Section --- */
         .faq-list {
             max-width: 800px;
             margin: 0 auto;
@@ -291,40 +336,93 @@
         .faq-item {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
-            border-radius: 10px;
+            border-radius: 12px;
             margin-bottom: 15px;
             overflow: hidden;
+            transition: var(--transition);
         }
 
         .faq-question {
-            padding: 20px;
+            padding: 22px;
             cursor: pointer;
             display: flex;
             justify-content: space-between;
             align-items: center;
             font-weight: bold;
+            font-size: 1.05rem;
         }
 
         .faq-answer {
-            padding: 0 20px;
+            padding: 0 22px;
             max-height: 0;
             overflow: hidden;
             transition: all 0.3s ease-out;
             color: var(--text-muted);
+            font-size: 0.95rem;
         }
 
         .faq-item.active .faq-answer {
-            padding: 0 20px 20px;
-            max-height: 200px;
+            padding: 0 22px 22px;
+            max-height: 300px;
         }
 
         .faq-item.active i {
             transform: rotate(180deg);
+            color: var(--primary-color);
+        }
+
+        /* --- Contact Form Section (新機能) --- */
+        .contact-area {
+            max-width: 750px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 24px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 9px;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px 16px;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 4px var(--accent-soft);
+        }
+
+        /* --- Download Section --- */
+        .download-box {
+            background: linear-gradient(135deg, var(--section-bg) 0%, var(--border-color) 100%);
+            padding: 60px 40px;
+            border-radius: 30px;
+            text-align: center;
         }
 
         /* --- Footer --- */
         footer {
-            padding: 60px 0 30px;
+            padding: 60px 0 40px;
             border-top: 1px solid var(--border-color);
             text-align: center;
         }
@@ -332,9 +430,13 @@
         .footer-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 35px;
             margin-bottom: 30px;
             flex-wrap: wrap;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
         }
 
         .copyright {
@@ -342,10 +444,10 @@
             color: var(--text-muted);
         }
 
-        /* Scroll Reveal Animation */
+        /* --- Scroll Reveal Animation --- */
         .reveal {
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(40px);
             transition: all 0.8s ease-out;
         }
 
@@ -354,10 +456,14 @@
             transform: translateY(0);
         }
 
-        /* --- Responsive --- */
+        /* --- Responsive Design --- */
         @media (max-width: 992px) {
-            .features-grid, .steps-container { grid-template-columns: 1fr; }
-            .hero-title { font-size: 2.2rem; }
+            .features-grid, .steps-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .hero-title { font-size: 2.3rem; }
+            section { padding: 70px 0; }
         }
 
         @media (max-width: 768px) {
@@ -369,13 +475,33 @@
                 height: calc(100vh - 70px);
                 background-color: var(--bg-color);
                 flex-direction: column;
-                padding-top: 50px;
-                transition: 0.4s;
+                gap: 40px;
+                padding-top: 60px;
+                transition: 0.4s ease;
+                border-top: 1px solid var(--border-color);
             }
 
-            .nav-menu.active { left: 0; }
-            .hamburger { display: flex; }
-            .nav-inner { padding: 0 20px; }
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .contact-area {
+                padding: 35px 20px;
+            }
         }
     </style>
 </head>
@@ -390,8 +516,9 @@
                     <li><a href="#features" class="nav-link">特徴</a></li>
                     <li><a href="#steps" class="nav-link">使い方</a></li>
                     <li><a href="#faq" class="nav-link">よくある質問</a></li>
-                    <li><a href="#download" class="btn btn-primary" style="padding: 10px 25px;">ダウンロード</a></li>
-                    <li><div class="theme-toggle" id="theme-toggle"><i class="fas fa-moon"></i></div></li>
+                    <li><a href="#contact" class="nav-link">お問い合わせ</a></li>
+                    <li><a href="#download" class="btn btn-primary" style="padding: 10px 25px; font-size: 0.95rem;">ダウンロード</a></li>
+                    <li><div class="theme-toggle" id="theme-toggle" title="テーマ切り替え"><i class="fas fa-moon"></i></div></li>
                 </ul>
             </nav>
 
@@ -404,14 +531,19 @@
     </header>
 
     <main>
+        
         <section class="hero">
             <div class="container">
                 <span class="hero-badge">AI搭載・完全無料ツール</span>
                 <div class="voice-wave">
-                    <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
+                    <div class="wave-bar"></div>
                 </div>
                 <h1 class="hero-title">「開け、YouTube。」<br>その一言が、パソコンを動かす<span>魔法になる。</span></h1>
-                <p class="hero-lead">マウスを使わず、声だけでアプリもWebサイトも一発起動。あなたの設定次第で、PCがあなた専用の魔法の杖に変わります。</p>
+                <p class="hero-lead">マウスもキーボードも使わず、マイクに向かって話すだけ。アプリもWebサイトも一発で自動起動。初心者でも安心の簡単カスタマイズで、あなたのPCライフを新感覚の便利さへ導きます。</p>
                 <a href="#download" class="btn btn-primary">今すぐ無料でダウンロード</a>
             </div>
         </section>
@@ -420,23 +552,23 @@
             <div class="container">
                 <div class="section-header">
                     <h2>圧倒的な便利さの秘密</h2>
-                    <p>直感的な操作と高度な認識機能</p>
+                    <p>直感的な操作感と、高度なローカル音声認識機能を両立</p>
                 </div>
                 <div class="features-grid">
                     <div class="feature-card">
                         <i class="fas fa-bolt feature-icon"></i>
-                        <h3>瞬速レスポンス</h3>
-                        <p>高度な音声解析により、喋り終わった瞬間に目的のアプリやサイトが立ち上がります。ストレスはゼロです。</p>
+                        <h3>「話すだけ」の一発起動</h3>
+                        <p>メモ帳や電卓などのローカルアプリから、YouTubeやブログといったお気に入りのWebサイトまで、事前に登録した言葉を喋るだけで瞬時に立ち上がります。ブラウザを開いて検索する手間はもう不要です。</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-sliders feature-icon"></i>
                         <h3>自由なカスタマイズ</h3>
-                        <p>好きな言葉（魔法）を好きな対象に紐付け可能。「電卓」でも「計算して」でも、あなた流でOK。</p>
+                        <p>直感的で洗練された設定画面を用意。プログラミングの知識がなくても、「魔法の言葉」と「起動したい対象」を誰でも簡単に紐付けることができます。あなただけのオリジナルコマンドを無限に作成可能です。</p>
                     </div>
                     <div class="feature-card">
                         <i class="fas fa-shield-halved feature-icon"></i>
-                        <h3>安心のセキュリティ</h3>
-                        <p>音声はローカルで処理され、外部に送信されることはありません。完全オープンソースで透明性も抜群。</p>
+                        <h3>安心・安全のセキュリティ</h3>
+                        <p>マイクから取得した音声はすべてあなたのパソコン内（ローカル環境）でリアルタイムに解析処理されます。バックグラウンドで不正な外部通信を行うこともなく、プライバシーを完全に守るオープン設計です。</p>
                     </div>
                 </div>
             </div>
@@ -446,22 +578,23 @@
             <div class="container">
                 <div class="section-header">
                     <h2>たったの3ステップで魔法使いに</h2>
+                    <p>導入から実際の起動まで、難しい設定は一切ありません</p>
                 </div>
                 <div class="steps-container">
                     <div class="step-box">
                         <div class="step-num">1</div>
-                        <h3>言葉を登録</h3>
-                        <p>アプリの設定画面で、好きな言葉と、起動したいURLやアプリを指定します。</p>
+                        <h3>言葉を登録する</h3>
+                        <p>アプリを開き、お好みの「魔法の言葉」と、起動したいWebサイトのURL、または動かしたいアプリのパスを入力して保存します。</p>
                     </div>
                     <div class="step-box">
                         <div class="step-num">2</div>
-                        <h3>マイクをオン</h3>
-                        <p>アプリを起動しておくだけ。あなたの声を聞く準備が整います。</p>
+                        <h3>マイクに向かって話す</h3>
+                        <p>準備はこれだけ。設定した言葉をPCのマイクに向かっていつでも元気に話しかけてみてください。バックグラウンドで常に待機しています。</p>
                     </div>
                     <div class="step-box">
                         <div class="step-num">3</div>
-                        <h3>魔法を唱える</h3>
-                        <p>「YouTube」！それだけでブラウザが開き、目的のページが表示されます。</p>
+                        <h3>自動で一発起動！</h3>
+                        <p>あなたの声を高度なAIエンジンが認識し、一瞬で目的のアプリやWebページが目の前に展開します。まるでPCを魔法の杖に変えたかのような快感です！</p>
                     </div>
                 </div>
             </div>
@@ -471,44 +604,82 @@
             <div class="container">
                 <div class="section-header">
                     <h2>よくある質問</h2>
+                    <p>導入前に気になる疑問にお答えします</p>
                 </div>
                 <div class="faq-list">
                     <div class="faq-item">
                         <div class="faq-question">マイクの音質が悪くても認識しますか？ <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">はい、標準的なPCマイクであれば認識可能です。環境音が多い場合は設定で感度を調整できます。</div>
+                        <div class="faq-answer">はい、ノートパソコンの内蔵マイクや標準的なヘッドセットの品質があれば十分に認識可能です。静かな部屋での利用を推奨しますが、環境音が気になる場合はアプリ内の設定からマイクの認識感度を細かく調整することができます。</div>
                     </div>
                     <div class="faq-item">
-                        <div class="faq-question">料金はかかりますか？ <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">いいえ、完全に無料です。寄付やオープンソースへの貢献を歓迎しています。</div>
+                        <div class="faq-question">料金は本当に一切かかりませんか？ <i class="fas fa-chevron-down"></i></div>
+                        <div class="faq-answer">はい、ダウンロードから全機能の利用まで完全に無料（フリーソフト）です。アプリ内に強制的な広告が表示されることもありません。もし気に入っていただけましたら、GitHubでのスター付与や、今後のオープンソース開発への貢献・応援をいただけますと幸いです。</div>
                     </div>
                     <div class="faq-item">
                         <div class="faq-question">どのようなOSに対応していますか？ <i class="fas fa-chevron-down"></i></div>
-                        <div class="faq-answer">現在はWindows 10/11に最適化されています。Mac版も開発中です。</div>
+                        <div class="faq-answer">現在は Windows 10 および Windows 11（64bit版）に完全最適化されています。動作にはマイク環境が必要です。なお、多くのご要望をいただいている Mac（macOS）版についても、現在リリースに向けて鋭意開発を進めております。</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="download" class="reveal">
-            <div class="container" style="text-align: center;">
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">今すぐ魔法を手に入れよう</h2>
-                <p style="margin-bottom: 40px; color: var(--text-muted);">あなたの声で、もっと自由なPCライフを。GitHubにて最新版を配布中。</p>
-                <div style="background: var(--accent-soft); padding: 50px; border-radius: 30px;">
-                    <a href="https://github.com/" class="btn btn-primary" style="background-color: var(--secondary-color);"><i class="fab fa-github"></i> GitHubからダウンロード</a>
-                    <p style="margin-top: 20px; font-size: 0.8rem; color: var(--text-muted);">Version 1.2.0 (Stable) | 64-bit Windows Installer</p>
+        <section id="contact" class="reveal">
+            <div class="container">
+                <div class="section-header">
+                    <h2>お問い合わせ</h2>
+                    <p>バグの報告、機能のご要望、その他ご質問はこちらのフォームよりお気軽にお送りください</p>
+                </div>
+                <div class="contact-area">
+                    <form id="inquiry-form">
+                        <div class="form-group">
+                            <label class="form-label">お名前</label>
+                            <input type="text" class="form-control" placeholder="魔法 太郎" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">メールアドレス</label>
+                            <input type="email" class="form-control" placeholder="your-email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">お問い合わせ内容</label>
+                            <textarea class="form-control" rows="6" placeholder="不具合の報告や、追加してほしい音声コマンド機能など、自由にご記入ください。" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%; border-radius: 12px; font-size: 1.05rem;">
+                            <i class="fas fa-paper-plane"></i> メッセージを送信する
+                        </button>
+                    </form>
                 </div>
             </div>
         </section>
+
+        <section class="bg-grey reveal">
+            <div class="container">
+                <div id="download" class="download-box">
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 800;">今すぐ魔法を手に入れよう</h2>
+                    <p style="margin-bottom: 40px; color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        あなたの声で、もっと自由で効率的なPCライフを。GitHubリポジトリにて安定版インストーラーを安全に無料配布しています。
+                    </p>
+                    <div style="display: inline-block;">
+                        <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="background-color: var(--secondary-color); font-size: 1.2rem; padding: 18px 55px;">
+                            <i class="fab fa-github"></i> GitHubからダウンロード
+                        </a>
+                        <p style="margin-top: 20px; font-size: 0.85rem; color: var(--text-muted);">
+                            Version 1.2.0 (Stable) | 64-bit Windows Installer (Windows 10 / 11 対応)
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container">
             <div class="footer-links">
-                <a href="https://github.com/">GitHub</a>
-                <a href="https://github.com/say-and-run/say-and-run.github.io/blob/main/TERMS.md">利用規約</a>
-                <a href="https://github.com/say-and-run/say-and-run.github.io/blob/main/PRIVACY.md">プライバシーポリシー</a>
+                <a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHubリポジトリ</a>
+                <a href="https://github.com/say-and-run/say-and-run.github.io/blob/main/TERMS.md" target="_blank" rel="noopener noreferrer">利用規約</a>
+                <a href="https://github.com/say-and-run/say-and-run.github.io/blob/main/PRIVACY.md" target="_blank" rel="noopener noreferrer">プライバシーポリシー</a>
             </div>
-            <p class="copyright">&copy; 2026 Magical Voice Command System. Developed with ❤️</p>
+            <p class="copyright">&copy; 2026 Magical Voice Command System. Developed with ❤️ by say-and-run</p>
         </div>
     </footer>
 
@@ -530,7 +701,7 @@
             }
         });
 
-        // 保存されたテーマの読み込み
+        // テーマの初期読み込み
         if (localStorage.getItem('theme') === 'dark') {
             body.setAttribute('data-theme', 'dark');
             icon.classList.replace('fa-moon', 'fa-sun');
@@ -545,7 +716,7 @@
             hamburger.classList.toggle('active');
         });
 
-        // リンククリックでメニューを閉じる
+        // リンクをクリックしたらメニューを閉じる (スマホ用)
         document.querySelectorAll('.nav-link').forEach(n => n.addEventListener('click', () => {
             navMenu.classList.remove('active');
             hamburger.classList.remove('active');
@@ -559,20 +730,27 @@
             });
         });
 
+        // --- お問い合わせフォーム擬似送信処理 ---
+        document.getElementById('inquiry-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('お問い合わせありがとうございます！メッセージが正常に送信されました。(※このフォームはデザインの動作デモです)');
+            e.target.reset();
+        });
+
         // --- Scroll Reveal Animation ---
         function reveal() {
             var reveals = document.querySelectorAll(".reveal");
             for (var i = 0; i < reveals.length; i++) {
                 var windowHeight = window.innerHeight;
                 var elementTop = reveals[i].getBoundingClientRect().top;
-                var elementVisible = 150;
+                var elementVisible = 120;
                 if (elementTop < windowHeight - elementVisible) {
                     reveals[i].classList.add("active");
                 }
             }
         }
         window.addEventListener("scroll", reveal);
-        reveal(); // 初回実行
+        reveal(); // 初回チェック
     </script>
 </body>
 </html>
